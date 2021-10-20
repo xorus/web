@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+$left: 30vw;
+
+html {
+  font-family: Nunito, serif;
+  font-size: 16px;
+
+  background: black;
+  color: white;
+}
+
+body {
+  position: absolute;
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1000px) {
+    @content
+  }
+}
+
+#profile {
+  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0), rgb(0, 0, 0, 0.6)), url("../img/background.jpg");
+  background-size: cover;
+  background-position: top center;
+
+  text-align: left;
+  margin: 0;
+  padding: 10vw 10vw;
+  width: 80vw;
+
+  @include desktop {
+    text-align: center;
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), rgb(0, 0, 0, 1) 95%, rgb(0, 0, 0, 1) 100%), url("../img/background.jpg");
+    width: $left;
+    padding: 4vh 3vw;
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: fixed;
+    color: #fff !important;
+    row-gap: 1rem;
+  }
+
+  .avatar {
+    border-radius: 6px;
+    width: 120px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .username {
+    font-size: 2rem;
+  }
+
+  .coffee {
+    font-size: 0.7rem;
+    color: white;
+    opacity: 0.4;
+  }
+}
+
+#content {
+  padding: 0 10vw;
+  margin: 2rem 0;
+
+  @include desktop {
+    margin-left: 36vw;
+    padding-left: 2vw;
+    padding-right: 1vw;
+  }
+}
+
+.projects {
+  display: grid;
+  grid-auto-columns: 2fr;
+  grid-auto-rows: 2fr;
+  gap: 30px 30px;
+}
+
+.project {
+  display: block;
+  padding: 30px;
+
+  @include desktop {
+    max-width: max(600px, calc(50% - 80px));
+  }
+
+  font-size: 1.2rem;
+
+  color: black;
+  text-decoration: none;
+
+  border-radius: 5px;
+  background-image: linear-gradient(
+      25deg,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.2)
+  );
+
+  .icon {
+    width: 32px;
+    float: left;
+    margin-right: 16px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    @include desktop {
+      font-size: 2rem;
+    }
+    margin: 0 0 1rem;
+    display: block;
+    word-break: break-all;
+  }
+
+  div {
+    clear: both;
+  }
+}
